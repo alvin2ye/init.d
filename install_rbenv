@@ -1,0 +1,20 @@
+echo "Instal rbenv with ree-1.8.7-2012.02"
+cd ~
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+cd .rbenv
+mkdir plugins
+cd plugins
+git clone git://github.com/sstephenson/ruby-build.git
+git clone git://github.com/jamis/rbenv-gemset.git
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> $HOME/.zshrc
+echo 'eval "$(rbenv init -)"' >> $HOME/.zshrc
+zsh -h
+CONFIGURE_OPTS="--no-tcmalloc" rbenv install ree-1.8.7-2012.02
+rbenv global ree-1.8.7-2012.02
+rbenv shell ree-1.8.7-2012.02
+rbenv local ree-1.8.7-2012.02
+echo ""
+echo ""
+echo "Now you can use :"
+echo "ruby -v"
+echo ""
